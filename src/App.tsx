@@ -1,18 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import { useState } from 'react'
+
 import './App.css'
-import { NavLink } from 'react-router'
+import { NavLink, Outlet } from 'react-router'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
       <div>
         <nav>
-          <NavLink to="/">Home</NavLink> |{' '}
+          <NavLink to="/">Kids</NavLink> |{' '}
+          <NavLink to="/toys">Toys </NavLink>|{' '}
+          <NavLink to="/toytokid">Toy To Kid</NavLink>  |{' '}
+          <NavLink to="/createtoy">Create Toy</NavLink> |{' '}
         </nav>
+        <main>
+          <Outlet />
+        </main>
       </div>
     </>
   )

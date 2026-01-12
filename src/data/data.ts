@@ -9,7 +9,7 @@ interface Kid{
 
 type Material = 'wood' | 'plastic' | 'metal'| 'other';
 
-interface Toy{
+interface Toy{  //when updated , update too in createToy.tsx
     id: number;
     name: string;
     material: Material;
