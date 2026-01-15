@@ -19,10 +19,14 @@ export function ToysList() {
     }, [apiContext]);
     return (
         <div>
-            <h1>Toys List</h1>
-            {toys.map(toy => (
-                <ToyComp toy={toy} key={toy.id} onToyDelete={deleteToy} />
-            ))}
+            <h1 className="mb-4 text-primary">Toys List</h1>
+            <div className="row g-4">
+                {toys.map(toy => (
+                    <div key={toy.id} className="col-md-6 col-lg-4">
+                        <ToyComp toy={toy} onToyDelete={deleteToy} />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

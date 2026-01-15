@@ -13,10 +13,14 @@ export function KidsList() {
     }, [apiContext]);
     return (
         <div>
-            <h1>Kids List</h1>
-            {kids.map(kid => (
-                <KidComp kid={kid} key={kid.id} />
-            ))}
+            <h1 className="mb-4 text-primary">Kids List</h1>
+            <div className="row g-4">
+                {kids.map(kid => (
+                    <div key={kid.id} className="col-md-6 col-lg-4">
+                        <KidComp kid={kid} />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

@@ -26,26 +26,56 @@ export function CreateToy() {
         });
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Create Toy</h2>
-            <div>
-                <label>Name:</label>
-                <input type="text" value={name} onChange={e => setName(e.target.value)} />
+        <div className="container mt-4">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="card shadow-lg">
+                        <div className="card-body">
+                            <h2 className="card-title text-primary mb-4">Create New Toy</h2>
+                            <form onSubmit={handleSubmit}>
+                                <div className="mb-3">
+                                    <label className="form-label"><strong>Toy Name:</strong></label>
+                                    <input 
+                                        type="text" 
+                                        className="form-control" 
+                                        value={name} 
+                                        onChange={e => setName(e.target.value)} 
+                                        placeholder="Enter toy name"
+                                        required 
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label"><strong>Material:</strong></label>
+                                    <select 
+                                        className="form-select" 
+                                        value={material} 
+                                        onChange={e => setMaterial(e.target.value as Material)}
+                                    >
+                                        <option value="wood">Wood</option>
+                                        <option value="plastic">Plastic</option>
+                                        <option value="metal">Metal</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label"><strong>Weight (kg):</strong></label>
+                                    <input 
+                                        type="number" 
+                                        className="form-control" 
+                                        value={wheight} 
+                                        onChange={e => setWeight(parseFloat(e.target.value))}
+                                        placeholder="0.00"
+                                        step="0.1"
+                                    />
+                                </div>
+                                <button type="submit" className="btn btn-primary w-100">
+                                    Create Toy
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label>Material:</label>
-                <select value={material} onChange={e => setMaterial(e.target.value as Material)}>
-                    <option value="wood">Wood</option>
-                    <option value="plastic">Plastic</option>
-                    <option value="metal">Metal</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            <div>
-                <label>Weight (kg):</label>
-                <input type="number" value={wheight} onChange={e => setWeight(parseFloat(e.target.value))} />
-            </div>
-            <button type="submit">Create Toy</button>
-        </form>
+        </div>
     );
 }

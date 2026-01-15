@@ -13,6 +13,8 @@ import { ToysList } from './comps/toysList.tsx'
 import { ConnectToyToKid } from './comps/connectToyToKid.tsx'
 import {CreateToy} from './comps/createToy.tsx'
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const router = createBrowserRouter([
   {
     path: "/",

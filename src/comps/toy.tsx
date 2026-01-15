@@ -10,15 +10,16 @@ interface ToyProps{
 }
 
 export function ToyComp(props: ToyProps) {
-    /*useEffect(() => {
-        console.log("Toy component mounted:", props.toy);
-    }, [props.toy]);*/
     return (
-        <div>
-            <h2>{props.toy.name}</h2>
-            <p>Material: {props.toy.material}</p>
-            <p>Weight: {props.toy.weight} kg</p>
-            <button onClick={() => props.onToyDelete?.(props.toy.id)}>Delete Toy</button>
+        <div className="card h-100 shadow-sm border-0">
+            <div className="card-body">
+                <h2 className="card-title text-primary">{props.toy.name}</h2>
+                <p className="card-text"><strong>Material:</strong> {props.toy.material}</p>
+                <p className="card-text"><strong>Weight:</strong> {props.toy.weight} kg</p>
+                <button onClick={() => props.onToyDelete?.(props.toy.id)} className="btn btn-danger btn-sm mt-2">
+                    Delete Toy
+                </button>
+            </div>
         </div>
     );
 }
