@@ -1,11 +1,12 @@
 import { createContext, useState, type PropsWithChildren } from "react";
-import { type Kid, type Toy, fetchKids, fetchToys, fetchKidById, fetchToyById,createToy,deleteToy,giveToyToKid,removeToyFromKid } from "../data/data";
+import { type Kid, type Toy,type KidWhishedforToys, fetchKidsWithToys, fetchKids, fetchToys, fetchKidById, fetchToyById,createToy,deleteToy,giveToyToKid,removeToyFromKid } from "../data/data";
 
 interface ApiContextType {
     kids: Kid[];
     toys: Toy[];
     getKids: () => Promise<Kid[]>;
     getToys: () => Promise<Toy[]>;
+    getKidsWhished: () => Promise<KidWhishedforToys[]>;
 
     getKidById: (id: number) => Promise<Kid>;
     getToyById: (id: number) => Promise<Toy>;
@@ -22,6 +23,7 @@ const defaultApiContext: ApiContextType = {
     toys: [],
     getKids: async () => [],
     getToys: async () => [],
+    getKidsWhished: async () => [],
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     getKidById: async (id: number) => ({ id: 0, name: "", location: "", wasGood: false }),
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -44,6 +46,7 @@ export const ApiContext = createContext<ApiContextType>(defaultApiContext);
 export function ApiProvider(props: PropsWithChildren) {
     const [kids, setKids] = useState<Kid[]>([]);
     const [toys, setToys] = useState<Toy[]>([]);
+
     const getKids = async (): Promise<Kid[]> => {
         const data = await fetchKids();
         setKids(data);
@@ -52,6 +55,11 @@ export function ApiProvider(props: PropsWithChildren) {
     const getToys = async (): Promise<Toy[]> => {
         const data = await fetchToys();
         setToys(data);
+        return data;
+    }
+
+    const getKidsWhished = async (): Promise<KidWhishedforToys[]> => {
+        const data = await fetchKidsWithToys();
         return data;
     }
     const getKidById = async (id: number): Promise<Kid> => {
@@ -84,6 +92,7 @@ export function ApiProvider(props: PropsWithChildren) {
         toys : toys,
         getKids : getKids,
         getToys : getToys,
+        getKidsWhished : getKidsWhished,
         getKidById : getKidById,
         getToyById : getToyById,
         createToy : createToyy,

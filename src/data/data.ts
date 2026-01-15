@@ -16,6 +16,18 @@ interface Toy{  //when updated , update too in createToy.tsx
     weight: number;
 }
 
+interface KidWhishedforToys{
+    id: number;
+    name: string;
+    whishedFor: Toy[];
+}
+
+async function fetchKidsWithToys(): Promise<KidWhishedforToys[]>{
+    const response = await fetch(`${url}/children/toys`);
+    const data : KidWhishedforToys[] = await response.json();
+    return data;
+}
+
 async function fetchKids(): Promise<Kid[]>{
     const response = await fetch(`${url}/children`);
     const data : Kid[] = await response.json();
@@ -90,10 +102,11 @@ export {
     fetchToys, 
     fetchKidById, 
     fetchToyById, 
+    fetchKidsWithToys,
     /*createKid,*/ 
     createToy, 
     deleteToy, 
     giveToyToKid, 
     removeToyFromKid, 
-    type Kid, type Toy, type Material
+    type Kid, type Toy, type Material, type KidWhishedforToys
 };

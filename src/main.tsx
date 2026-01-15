@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import {ApiProvider} from './contexts/apicontext.tsx'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { createBrowserRouter, Route } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 

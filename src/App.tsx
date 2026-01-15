@@ -13,7 +13,7 @@ function App() {
           <NavLink to="/">Kids</NavLink> |{' '}
           <NavLink to="/toys">Toys </NavLink>|{' '}
           <NavLink to="/toytokid">Toy To Kid</NavLink>  |{' '}
-          <NavLink to="/createtoy">Create Toy</NavLink> |{' '}
+          <NavLink to="/createtoy">Create Toy</NavLink>
         </nav>
         <main>
           <Outlet />
