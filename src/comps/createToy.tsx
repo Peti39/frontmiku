@@ -10,6 +10,14 @@ export function CreateToy() {
     const [wheight, setWeight] = useState(0);
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        if (!name) {
+            alert("Name is required");
+            return;
+        }
+        if (wheight <= 0) {
+            alert("Weight must be positive");
+            return;
+        }
         console.log("Creating toy:", {name, material, wheight});
         apiContext.createToy({name, material, weight: wheight}).then(() => {
             setName("");
