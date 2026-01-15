@@ -25,10 +25,10 @@ const defaultApiContext: ApiContextType = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     getKidById: async (id: number) => ({ id: 0, name: "", location: "", wasGood: false }),
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    getToyById: async (id: number) => ({ id: 0, name: "", material: "other", wheight: 0 }),
+    getToyById: async (id: number) => ({ id: 0, name: "", material: "other", weight: 0 }),
     
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    createToy: async (toy: Omit<Toy, 'id'>) => ({ id: 0, name: "", material: "other", wheight: 0 }),
+    createToy: async (toy: Omit<Toy, 'id'>) => ({ id: 0, name: "", material: "other", weight: 0 }),
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     deleteToy: async (id: number) => {},
 

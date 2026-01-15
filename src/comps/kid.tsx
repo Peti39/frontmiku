@@ -12,6 +12,7 @@ export function KidComp(props: KidProps) {
             <h2>{props.kid.name}</h2>
             <p>Location: {props.kid.location}</p>
             <p>Was good: {props.kid.wasGood ? "Yes" : "No"}</p>
+            
         </div>
     );
 }

@@ -7,10 +7,11 @@ export function CreateToy() {
     const apiContext = useContext(ApiContext);
     const [name, setName] = useState("");
     const [material, setMaterial] = useState<Material>("other");
-    const [weight, setWeight] = useState(0);
+    const [wheight, setWeight] = useState(0);
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        apiContext.createToy({name, material, wheight: weight}).then(() => {
+        console.log("Creating toy:", {name, material, wheight});
+        apiContext.createToy({name, material, weight: wheight}).then(() => {
             setName("");
             setMaterial("other");
             setWeight(0);
@@ -34,7 +35,7 @@ export function CreateToy() {
             </div>
             <div>
                 <label>Weight (kg):</label>
-                <input type="number" value={weight} onChange={e => setWeight(parseFloat(e.target.value))} />
+                <input type="number" value={wheight} onChange={e => setWeight(parseFloat(e.target.value))} />
             </div>
             <button type="submit">Create Toy</button>
         </form>

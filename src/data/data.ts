@@ -13,7 +13,7 @@ interface Toy{  //when updated , update too in createToy.tsx
     id: number;
     name: string;
     material: Material;
-    wheight: number;
+    weight: number;
 }
 
 async function fetchKids(): Promise<Kid[]>{
